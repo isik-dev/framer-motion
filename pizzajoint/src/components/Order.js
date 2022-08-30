@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -17,6 +17,10 @@ const containerVariants = {
       staggerChildren: 0.4,
     },
   },
+  exit: {
+    x: '-100vw',
+    transition: { ease: 'easeInOut' },
+  },
 };
 
 const childrenVariants = {
@@ -30,9 +34,10 @@ const Order = ({ pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
       className="container order"
     >
-      <h2>Thank you for your order :)</h2>
+      <h2 exit={{ y: -1000 }}>Thank you for your order :)</h2>
       <motion.p variants={childrenVariants}>
         You ordered a {pizza.base} pizza with:
       </motion.p>
