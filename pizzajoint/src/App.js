@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import Base from './components/Base';
+import Input from './components/Input';
 import Toppings from './components/Toppings';
 import Order from './components/Order';
 import { AnimatePresence } from 'framer-motion';
@@ -30,6 +31,9 @@ function App() {
       <Header />
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
+          <Route path="/input">
+            <Input />
+          </Route>
           <Route path="/base">
             <Base addBase={addBase} pizza={pizza} />
           </Route>
